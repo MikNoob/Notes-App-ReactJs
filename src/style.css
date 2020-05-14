@@ -1,0 +1,13 @@
+root {
+    --lightGray: #D3D3D3;
+}
+
+body {
+    max-width: 80vw;
+    background-color: var(--lightGray);
+    margin: 0 auto;
+}
+
+.App--Container {
+    margin-top: 3%;
+}
