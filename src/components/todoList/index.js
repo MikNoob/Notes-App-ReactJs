@@ -1,17 +1,18 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
 
-let TodoList = ({data}) => {
-    return(
-        <div>
-            
-        </div>
-    )
-}
+import TodoCard from './todoCard'
+
+let TodoList = ({data, todosFunc}) => (
+    <div className='TodoList--Container'>
+        {data.map(todo => <TodoCard key={todo.id} {...todo} {...todosFunc} />)}
+    </div>
+)
 
 TodoList.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    todosFunc: PropTypes.object.isRequired
 }
 
 export default TodoList

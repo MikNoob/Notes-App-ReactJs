@@ -1,0 +1,56 @@
+.TodoCard--Container {
+    /*max-width: 600px;*/
+
+    margin-top: 20px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+.TodoCard--Container span {
+    font-size: 1.7rem;
+    margin: 5px 0px 5px 5px;
+}
+
+.TodoCard--Options {
+    max-width: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+
+.TodoCard--Options svg {
+    transition: color 0.2s;
+}
+
+.TodoCard--Options svg:hover {
+    cursor: pointer;
+}
+
+.TodoCard--CheckOp {
+    margin-right: 18px;
+}
+
+.TodoCard--CheckOp:hover {
+    color: green;
+}
+
+.TodoCard--EditOp {
+    margin-right: 10px;
+}
+
+.TodoCard--EditOp:hover {
+    color: gray;
+}
+
+.TodoCard--DeleteOp {
+    margin-right: 10px;
+}
+
+.TodoCard--DeleteOp:hover {
+    color: red;
+}
