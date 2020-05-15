@@ -31,10 +31,15 @@
     cursor: pointer;
 }
 
+.TodoCard--UndoOp {
+    margin-right: 18px;
+}
+
 .TodoCard--CheckOp {
     margin-right: 18px;
 }
 
+.TodoCard--UndoOp:hover,
 .TodoCard--CheckOp:hover {
     color: green;
 }
@@ -53,4 +58,8 @@
 
 .TodoCard--DeleteOp:hover {
     color: red;
+}
+
+.Checked {
+    text-decoration: line-through;
 }

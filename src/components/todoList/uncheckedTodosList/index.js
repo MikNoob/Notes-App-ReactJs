@@ -4,8 +4,8 @@ import TodoCard from '../../todoCard'
 import {connect} from 'react-redux'
 import {FaAngleDown} from 'react-icons/fa'
 
-let UncheckedTodoList = ({todos}) => {
-    return (
+let UncheckedTodoList = ({data}) => {
+    return(
         <div className='UncheckedTodos--Container'>
             <div className='UncheckedTodos--Title'>
                 <FaAngleDown size={30} />
@@ -14,7 +14,7 @@ let UncheckedTodoList = ({todos}) => {
     
             <div className='UncheckedTodos--List'>
                 <ul>
-                    {todos.map(todo => (<TodoCard key={todo.id} {...todo} />))}        
+                    {data.map(todo => (<TodoCard key={todo.id} {...todo} />))}        
                 </ul>
             </div>
         </div>
@@ -22,8 +22,13 @@ let UncheckedTodoList = ({todos}) => {
 }
 
 UncheckedTodoList.propTypes = {
-    todos: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
 }
 
-//dispatch: PropTypes.func.isRequired
-export default connect(state => ({todos: state.UncheckedTodos}))(UncheckedTodoList)
+let getTodos = reduxState => {
+    let getCheckedTodos = todo => todo.checked ? false : true
+    let checkedTodos = reduxState.todos.filter(getCheckedTodos)
+    return {data: checkedTodos}
+}
+
+export default connect(getTodos)(UncheckedTodoList)

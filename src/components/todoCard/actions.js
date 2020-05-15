@@ -1,6 +1,6 @@
-let deleteUncheckedTodo = id => ({
-    type: 'DELETE_UNCHECKED_TODO',
+let checkTodo = id => ({
+    type: 'CHECK_TODO',
     id
 })
 
-export {deleteUncheckedTodo}
+export default checkTodo

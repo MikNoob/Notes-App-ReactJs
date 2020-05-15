@@ -1,21 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {FaCheck, FaEdit, FaTimes} from 'react-icons/fa'
+import {FaCheck, FaEdit, FaTimes, FaUndo} from 'react-icons/fa'
 import {connect} from 'react-redux'
-import {deleteUncheckedTodo} from './actions'
+import checkTodo from './actions'
+import {deleteTodo} from '../../redux/publicActions'
 import './style.css'
 
-let TodoCard = ({id, name, dispatch}) => {
+let TodoCard = ({id, name, checked, dispatch}) => {
+    console.log(checked)
     let handleDelete = () => {
-        dispatch(deleteUncheckedTodo(id))
+        dispatch(deleteTodo(id))
+    }
+
+    let handleCheck = () => {
+        dispatch(checkTodo(id))
     }
 
     return (
         <div className='TodoCard--Container'>
-            <span>{name}</span>
+            <span className={checked === true ? 'Checked' : null} >{name}</span>
 
             <div className='TodoCard--Options'>
-                <FaCheck className='TodoCard--CheckOp' size={30} />
+                {checked === true 
+                ? <FaUndo className='TodoCard--UndoOp' size={25} />
+                : <FaCheck className='TodoCard--CheckOp' size={30} onClick={handleCheck} />
+                }
                 <FaEdit className='TodoCard--EditOp' size={30} />
                 <FaTimes className='TodoCard--DeleteOp' size={30} onClick={handleDelete} />
             </div>
@@ -26,6 +35,7 @@ let TodoCard = ({id, name, dispatch}) => {
 TodoCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
 }
 
