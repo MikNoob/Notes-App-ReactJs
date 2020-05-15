@@ -20,3 +20,23 @@
 .CheckedTodos--Title :hover {
     cursor: pointer;
 }
+
+/* List */
+.listActivated {
+    display: block;
+}
+
+.listDesactivated {
+    display: none;
+}
+
+/* Li title Animations */
+.UncheckedTodos--Title :hover,
+.CheckedTodos--Title :hover {
+    font-size: 1.7rem;
+}
+
+.UncheckedTodos--Title span,
+.CheckedTodos--Title span {
+    transition: font-size 0.4s;
+}

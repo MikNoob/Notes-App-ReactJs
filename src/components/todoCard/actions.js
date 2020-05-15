@@ -3,4 +3,9 @@ let checkTodo = id => ({
     id
 })
 
-export default checkTodo
+let uncheckTodo = id => ({
+    type: 'UNCHECK_TODO',
+    id
+})
+
+export {checkTodo, uncheckTodo}

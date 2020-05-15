@@ -25,7 +25,7 @@ let TodoInput = ({dispatch}) => {
         <div className='TodoInput--Container'>
             <input
                 type='text'
-                placeholder='Todo here'
+                placeholder='Create a new todo'
                 value={todo}
                 onChange={handleTodo}
                 onKeyPress={handleSubmit}

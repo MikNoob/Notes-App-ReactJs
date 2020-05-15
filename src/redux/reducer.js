@@ -3,6 +3,18 @@ let initialState = {
 }
 
 let reducer = (state = initialState, action) => {
+    let toggleCheck = (isChecking) => {
+        let todoIndex = state.todos.findIndex(todo => todo.id === action.id)
+        let newTodoArray = state.todos.slice()
+
+        if(isChecking)        
+            newTodoArray[todoIndex].checked = true
+        else
+            newTodoArray[todoIndex].checked = false
+
+        return {...state, todos: newTodoArray}
+    }
+
     switch(action.type) {
         case 'ADD_TODO':
             return {...state, todos: [...state.todos, action.todo]}
@@ -12,10 +24,10 @@ let reducer = (state = initialState, action) => {
             return {...state, todos: newtodoArray}
 
         case 'CHECK_TODO':
-            let todoIndex = state.todos.findIndex(todo => todo.id === action.id)
-            let newTodoArray = state.todos.slice()
-            newTodoArray[todoIndex].checked = true
-            return {...state, todos: newTodoArray}
+            return toggleCheck(true)
+
+        case 'UNCHECK_TODO':
+            return toggleCheck(false)
 
         default:
             return state
