@@ -1,3 +1,22 @@
 .TodoList--Container {
     width: 100%;
+    margin-top: 20px;
+}
+
+.UncheckedTodos--Title,
+.CheckedTodos--Title {
+    display: flex;
+    align-items: center;
+
+    font-size: 1.4rem;
+}
+
+.UncheckedTodos--Title span,
+.CheckedTodos--Title span {
+    margin-left: 10px;
+}
+
+.UncheckedTodos--Title :hover,
+.CheckedTodos--Title :hover {
+    cursor: pointer;
 }

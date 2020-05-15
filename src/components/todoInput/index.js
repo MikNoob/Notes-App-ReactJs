@@ -1,23 +1,22 @@
 import React, {useState} from 'react'
 import {FaPlus} from 'react-icons/fa'
 import PropTypes from 'prop-types'
-import Crypto from 'crypto'
+import {connect} from 'react-redux'
+import AddTodo from './actions'
 import './style.css'
 
-let TodoInput = ({addTodo}) => {
+let TodoInput = ({dispatch}) => {
     let [todo, setTodo] = useState('')
 
     let handleTodo = e => {    
         setTodo(todo = e.target.value)
     }
 
-    let createTodoObj = todoName => ({id: Crypto.randomBytes(10).toString('hex'), name: todoName})
-
     let handleSubmit = e => {
         //e.key is for input
         //e.type is for clicking the addButton
         if(e.key === 'Enter' || e.type === 'click') {
-            addTodo(createTodoObj(todo))
+            dispatch(AddTodo(todo))
             setTodo(todo = '')
         }
     }
@@ -37,7 +36,7 @@ let TodoInput = ({addTodo}) => {
 }
 
 TodoInput.propTypes = {
-    addTodo: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
 }
 
-export default TodoInput
+export default connect()(TodoInput)

@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {FaCheck, FaEdit, FaTimes} from 'react-icons/fa'
+import {connect} from 'react-redux'
+import {deleteUncheckedTodo} from './actions'
 import './style.css'
 
-let TodoCard = ({id, name, delTodo}) => {
+let TodoCard = ({id, name, dispatch}) => {
     let handleDelete = () => {
-        delTodo(id)
-    }    
+        dispatch(deleteUncheckedTodo(id))
+    }
 
     return (
         <div className='TodoCard--Container'>
@@ -24,7 +26,8 @@ let TodoCard = ({id, name, delTodo}) => {
 TodoCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    delTodo: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
 }
 
-export default TodoCard
+//delTodo: PropTypes.func.isRequired
+export default connect()(TodoCard)
