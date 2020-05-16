@@ -29,6 +29,12 @@ let reducer = (state = initialState, action) => {
         case 'UNCHECK_TODO':
             return toggleCheck(false)
 
+        case 'EDIT_TODO':
+            let todoIndex = state.todos.findIndex(todo => todo.id === action.id)
+            let newTodoArray = state.todos.slice()
+            newTodoArray[todoIndex].name = action.newName
+            return {...state, todos: newTodoArray}
+
         default:
             return state
     }

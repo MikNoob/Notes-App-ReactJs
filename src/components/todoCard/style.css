@@ -16,6 +16,11 @@
     margin: 5px 0px 5px 5px;
 }
 
+.TodoCard--Input {
+    font-size: 1.5rem;
+    margin: 5px 0px 5px 5px;
+}
+
 .TodoCard--Options {
     max-width: fit-content;
 

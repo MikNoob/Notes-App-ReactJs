@@ -8,4 +8,10 @@ let uncheckTodo = id => ({
     id
 })
 
-export {checkTodo, uncheckTodo}
+let editTodo = (id, newName) => ({
+    type: 'EDIT_TODO',
+    id,
+    newName
+})
+
+export {checkTodo, uncheckTodo, editTodo}

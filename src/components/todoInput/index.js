@@ -13,11 +13,12 @@ let TodoInput = ({dispatch}) => {
     }
 
     let handleSubmit = e => {
-        //e.key is for input
-        //e.type is for clicking the addButton
         if(e.key === 'Enter' || e.type === 'click') {
-            dispatch(AddTodo(todo))
-            setTodo(todo = '')
+            if(todo.length >= 5) {
+                dispatch(AddTodo(todo))
+                setTodo(todo = '')
+            } else
+                alert('The todo needs to have at least 5 characters')
         }
     }
 
